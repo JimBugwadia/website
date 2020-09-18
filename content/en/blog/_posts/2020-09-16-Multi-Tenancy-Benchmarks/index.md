@@ -5,7 +5,7 @@ date: 2020-09-16
 slug: multi-tenancy-benchmarks
 ---
 
-**Authors**: Anuj Sharma (...), Divya Rani (...), Jim Bugwadia (Nirmata)
+**Authors**: Anuj Sharma (Udaan), Divya Rani (HackerRank), Jim Bugwadia (Nirmata)
 
 Kuberetes was designed to manage workloads across pools of infrastructure and hence decouple applications lifecycles from infrastructure. However, configuration complexity often gets in the way of sharing clusters across teams and applications leading to cluster sprawl and wasted resources.
 
@@ -72,19 +72,22 @@ There are currently 17 PL1 tests and 3 PL2 tests defined:
 
 ## Validating Multi-Tenancy
 
-The `kubectl-mtb` tool is designed to automate running Multi-Tenancy Benchmarks checks and reporting results. It is designed to be easy to use as a command line tool or as a CronJob. 
+The `kubectl-mtb` tool is designed to automate running Multi-Tenancy Benchmarks checks and reporting results, i.e. informing the users how they can attain multi-tenancy using different policy engines or by changing in-cluster configurations. It is designed to be easy to use as a command line tool or as a CronJob. This tool also contains an in-house policy reporter which reports policy execution results and provides a report for cluster administrators detailing multi-tenancy violations and recommended actions for remediation.
+Users can also add their benchmarks to the suite easily with the [mtb-builder](https://github.com/kubernetes-sigs/multi-tenancy/tree/master/benchmarks/kubectl-mtb#contributing) that comes along with the tool. Using the mtb-builder, new benchmarks can be added into the benchmarks suite with only one command and then users just need to write the functionality for the benchmark. To pass the benchmarks users need to apply policies, currently, we support both [Kyverno](https://github.com/nirmata/kyverno) and [OPA gatekeeper](https://github.com/open-policy-agent/gatekeeper) policies. You can find all the policies that we support [here](https://github.com/kubernetes-sigs/multi-tenancy/tree/master/benchmarks/kubectl-mtb/test/policies). 
 
-
-
+Check out this [README.md](https://github.com/kubernetes-sigs/multi-tenancy/tree/master/benchmarks/kubectl-mtb/README.md) to get started.
 
 
 ## Future Work
 
+- Making kubectl-mtb available via krew.
+- Validation of other suites / profiles, like [Standardized Pod Security Profiles](https://docs.google.com/document/d/1d9c4BaDzRw1B5fAcf7gLOMZSVEvrpSutivjfNOwIqT0/edit#) using additional labels on common behavioral and configuration checks.
+
 
 ---
 
-_[Anuj Sharma](...) ..._
+_[Anuj Sharma](https://twitter.com/phoenixking25) is a software engineer at Udaan, and a contributor to the Kubernetes multi-tenancy group._ 
 
-_[Divya Rani](...) ..._
+_[Divya Rani](https://twitter.com/theotherside_me) is a software engineer at HackerRank, and a contributor to the Kubernetes multi-tenancy group._ 
 
 _[Jim Bugwadia](https://twitter.com/JimBugwadia) is a founder at Nirmata, and a contributor to the Kubernetes multi-tenancy and policy working groups._
